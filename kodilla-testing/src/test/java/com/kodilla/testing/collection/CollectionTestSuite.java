@@ -26,12 +26,11 @@ public class CollectionTestSuite {
         OddNumbersExterminator executor = new OddNumbersExterminator();
 
         //When
-        List<Integer> evenNumbersList = new ArrayList<>();
-        List<Integer> testEmptyList = new ArrayList<>();
-        executor.exterminate(testEmptyList);
+        List<Integer> emptyList = new ArrayList<>();
+        List<Integer> exterminatedList = executor.exterminate(emptyList);
 
         //Then
-        Assertions.assertEquals(evenNumbersList.isEmpty(), testEmptyList.isEmpty());
+        Assertions.assertEquals(exterminatedList, emptyList);
     }
 
     @DisplayName("Check if the exterminate method works properly when the list has either odd and even numbers")
@@ -42,23 +41,21 @@ public class CollectionTestSuite {
         OddNumbersExterminator executor = new OddNumbersExterminator();
 
         //When
-        List<Integer> evenNumbersList = new ArrayList<>();
-
-        List<Integer> testOddAndEvenNumbersList = new ArrayList<>();
-        for (int i=0; i<20; i++) {
-            testOddAndEvenNumbersList.add(i);
+        List<Integer> oddAndEvenNumbersList = new ArrayList<>();
+        for (int i=0; i<10; i++) {
+            oddAndEvenNumbersList.add(i);
         }
 
-        List<Integer> testEvenNumbersList = new ArrayList<>();
-        for (Integer number : testEvenNumbersList) {
-            if (number % 2 == 0) {
-                testEvenNumbersList.add(number);
+        List<Integer> evenNumbersList = new ArrayList<>();
+        for (int i=0; i<10; i++) {
+            if (i % 2 == 0) {
+                evenNumbersList.add(i);
             }
         }
 
-        executor.exterminate(testOddAndEvenNumbersList);
+        List<Integer> exterminatedList = executor.exterminate(oddAndEvenNumbersList);
 
         //Then
-        Assertions.assertEquals(evenNumbersList, testEvenNumbersList);
+        Assertions.assertEquals(exterminatedList, evenNumbersList);
     }
 }
