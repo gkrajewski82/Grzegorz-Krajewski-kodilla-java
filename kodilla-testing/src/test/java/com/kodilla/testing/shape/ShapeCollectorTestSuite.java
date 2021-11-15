@@ -26,32 +26,36 @@ public class ShapeCollectorTestSuite {
     }
 
     @Nested
-    @DisplayName("Tests for circles")
-    class TestCircle {
+    @DisplayName("Tests for add figures")
+    class TestAddFigures {
         @Test
         void testAddFigure() {
             //Given
-            Shape circle1 = new Circle("circle_1", 32.76);
+            Shape shape = new Circle("circle_1", 32.76);
             ShapeCollector shapeCollector = new ShapeCollector();
             List<Shape> shapeCollection = shapeCollector.getShapeCollection();
 
             //When
-            shapeCollector.addFigure(circle1);
+            shapeCollector.addFigure(shape);
 
             //Then
             Assertions.assertEquals(1, shapeCollection.size());
         }
+    }
 
+    @Nested
+    @DisplayName("Tests for remove figures")
+    class TestRemoveFigures {
         @Test
         void testRemoveFigure() {
             //Given
-            Shape circle1 = new Circle("circle_1", 32.76);
+            Shape shape = new Circle("circle_1", 32.76);
             ShapeCollector shapeCollector = new ShapeCollector();
             List<Shape> shapeCollection = shapeCollector.getShapeCollection();
-            shapeCollector.addFigure(circle1);
+            shapeCollector.addFigure(shape);
 
             //When
-            boolean result = shapeCollector.removeFigure(circle1);
+            boolean result = shapeCollector.removeFigure(shape);
 
             //Then
             Assertions.assertTrue(result);
@@ -61,62 +65,54 @@ public class ShapeCollectorTestSuite {
         @Test
         void testRemoveFigureNotExisting() {
             //Given
-            Shape circle1 = new Circle("circle_1", 32.76);
+            Shape shape = new Circle("circle_1", 32.76);
             ShapeCollector shapeCollector = new ShapeCollector();
 
             //When
-            boolean result = shapeCollector.removeFigure(circle1);
+            boolean result = shapeCollector.removeFigure(shape);
 
             //Then
             Assertions.assertFalse(result);
         }
+    }
 
+    @Nested
+    @DisplayName("Tests for get figures")
+    class TestGetFigures {
         @Test
         void testGetFigure() {
             //Given
-            Shape circle1 = new Circle("circle1", 32.76);
+            Shape shape = new Circle("circle1", 32.76);
             ShapeCollector shapeCollector = new ShapeCollector();
-            shapeCollector.addFigure(circle1);
+            shapeCollector.addFigure(shape);
 
             //When
-            Shape retrievedCircle = shapeCollector.getFigure(0);
+            Shape retrievedShape = shapeCollector.getFigure(0);
 
             //Then
-            Assertions.assertEquals(circle1, retrievedCircle);
+            Assertions.assertEquals(shape, retrievedShape);
         }
     }
 
     @Nested
-    @DisplayName("Tests for triangles")
-    class TestTriangle {
-
-    }
-
-    @Nested
-    @DisplayName("Tests for squares")
-    class TestSquare {
-
-    }
-
-    @Nested
-    @DisplayName("Tests for all figures")
-    class TestAllFigures {
+    @DisplayName("Tests for show figures")
+    class TestShowFigures {
         @Test
         void testShowFigures() {
             //Given
-            Shape circle1 = new Circle("circle_1", 32.76);
-            Shape triangle1 = new Triangle("triangle_1", 12.34, 8.56);
-            Shape square1 = new Square("square_1", 12.43);
+            Shape circle = new Circle("circle_1", 32.76);
+            Shape triangle = new Triangle("triangle_1", 12.34, 8.56);
+            Shape square = new Square("square_1", 12.43);
             ShapeCollector shapeCollector = new ShapeCollector();
-            shapeCollector.addFigure(circle1);
-            shapeCollector.addFigure(triangle1);
-            shapeCollector.addFigure(square1);
+            shapeCollector.addFigure(circle);
+            shapeCollector.addFigure(triangle);
+            shapeCollector.addFigure(square);
 
             //When
             String retrievedFigures = shapeCollector.showFigures();
 
             //Then
-            Assertions.assertEquals(circle1.getShapeName() + triangle1.getShapeName() + square1.getShapeName(), retrievedFigures);
+            Assertions.assertEquals(circle.getShapeName() + triangle.getShapeName() + square.getShapeName(), retrievedFigures);
         }
     }
 }

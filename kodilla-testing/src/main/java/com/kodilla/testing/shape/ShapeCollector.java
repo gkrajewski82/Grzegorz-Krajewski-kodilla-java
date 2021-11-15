@@ -12,21 +12,32 @@ public class ShapeCollector {
     }
 
     public void addFigure(Shape shape) {
-        //temporarily do nothing
+        shapeCollection.add(shape);
     }
 
     public boolean removeFigure(Shape shape) {
-        //temporarily
-        return true;
+        boolean result = false;
+        if (shapeCollection.contains(shape)) {
+            shapeCollection.remove(shape);
+            result = true;
+        }
+        return result;
     }
 
     public Shape getFigure(int n) {
-        //temporarily
-        return null;
+        Shape retrievedShape = null;
+        if (n >= 0 && n < shapeCollection.size()) {
+            retrievedShape = shapeCollection.get(n);
+        }
+        return retrievedShape;
     }
 
     public String showFigures() {
-        //temporarily
-        return "aaa";
+        String retrievedFigures = "";
+        for (Shape shapeName : shapeCollection) {
+            String name = shapeName.getShapeName();
+            retrievedFigures = retrievedFigures + name;
+        }
+        return retrievedFigures;
     }
 }
