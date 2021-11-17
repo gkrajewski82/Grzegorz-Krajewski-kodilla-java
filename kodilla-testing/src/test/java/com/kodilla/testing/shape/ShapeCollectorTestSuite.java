@@ -33,13 +33,12 @@ public class ShapeCollectorTestSuite {
             //Given
             Shape shape = new Circle("circle_1", 32.76);
             ShapeCollector shapeCollector = new ShapeCollector();
-            List<Shape> shapeCollection = shapeCollector.getShapeCollection();
 
             //When
             shapeCollector.addFigure(shape);
 
             //Then
-            Assertions.assertEquals(1, shapeCollection.size());
+            Assertions.assertEquals(1, shapeCollector.getShapeCollection().size());
         }
     }
 
@@ -51,7 +50,6 @@ public class ShapeCollectorTestSuite {
             //Given
             Shape shape = new Circle("circle_1", 32.76);
             ShapeCollector shapeCollector = new ShapeCollector();
-            List<Shape> shapeCollection = shapeCollector.getShapeCollection();
             shapeCollector.addFigure(shape);
 
             //When
@@ -59,7 +57,7 @@ public class ShapeCollectorTestSuite {
 
             //Then
             Assertions.assertTrue(result);
-            Assertions.assertEquals(0, shapeCollection.size());
+            Assertions.assertEquals(0, shapeCollector.getShapeCollection().size());
         }
 
         @Test

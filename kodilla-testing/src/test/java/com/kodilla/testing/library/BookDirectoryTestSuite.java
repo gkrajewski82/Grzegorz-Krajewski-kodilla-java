@@ -12,7 +12,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
@@ -100,10 +99,10 @@ public class BookDirectoryTestSuite {
         @Test
         void testList0BooksInHandsOf() {
             // Given
-            BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
             LibraryUser user = new LibraryUser("Jan", "Kowalski", "82051709123");
             List<Book> resultListOf0Books = new ArrayList<>();
             when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(resultListOf0Books);
+            BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
 
             // When
             List<Book> theListOf0Books = bookLibrary.listBooksInHandsOf(user);
@@ -116,10 +115,10 @@ public class BookDirectoryTestSuite {
         @Test
         void testList1BookInHandsOf() {
             // Given
-            BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
             LibraryUser user = new LibraryUser("Jan", "Kowalski", "82051709123");
             List<Book> resultListOf1Book = generateListOfNBooks(1);
             when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(resultListOf1Book);
+            BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
 
             // When
             List<Book> theListOf1Book = bookLibrary.listBooksInHandsOf(user);
@@ -131,10 +130,10 @@ public class BookDirectoryTestSuite {
         @Test
         void testList5BooksInHandsOf() {
             // Given
-            BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
             LibraryUser user = new LibraryUser("Jan", "Kowalski", "82051709123");
             List<Book> resultListOf5Books = generateListOfNBooks(5);
             when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(resultListOf5Books);
+            BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
 
             // When
             List<Book> theListOf5Books = bookLibrary.listBooksInHandsOf(user);
