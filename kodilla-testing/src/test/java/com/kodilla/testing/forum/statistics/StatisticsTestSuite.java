@@ -155,7 +155,7 @@ public class StatisticsTestSuite {
     @Test
     void testCalculateAdvStatisticsWhen100Users() {
         //Given
-        List<String> usersList = usersGenerator(1000);
+        List<String> usersList = usersGenerator(100);
         when(statisticsMock.usersNames()).thenReturn(usersList);
         when(statisticsMock.postsCount()).thenReturn(50);
         when(statisticsMock.commentsCount()).thenReturn(2000);
@@ -165,8 +165,8 @@ public class StatisticsTestSuite {
         statisticsCount.calculateAdvStatistics(statisticsMock);
 
         //Then
-        assertEquals(1000, statisticsCount.getUsersNumber());
-        assertEquals(0.05, statisticsCount.getAveragePostsNumberPerUser());
-        assertEquals(2, statisticsCount.getAverageCommentsNumberPerUser());
+        assertEquals(100, statisticsCount.getUsersNumber());
+        assertEquals(0.5, statisticsCount.getAveragePostsNumberPerUser());
+        assertEquals(20, statisticsCount.getAverageCommentsNumberPerUser());
     }
 }
