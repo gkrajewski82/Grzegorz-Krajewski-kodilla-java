@@ -163,14 +163,14 @@ public class BoardTestSuite {
                 .flatMap(task -> task.getTasks().stream())
                 .count();
 
-        long NumberOfDays = project.getTaskLists().stream()
+        long numberOfDays = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(task -> task.getTasks().stream())
                 .map(Task::getCreated)
                 .map(period -> ChronoUnit.DAYS.between(period, LocalDate.now()))
                 .reduce(0L, (sum, current) -> sum = sum + current);
 
-        double average = (double) NumberOfDays / numberOfTasks;
+        double average = (double) numberOfDays / numberOfTasks;
 
         //Then
         assertEquals(10, average, 0.001);
