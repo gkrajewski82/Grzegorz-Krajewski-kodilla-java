@@ -1,4 +1,4 @@
-package com.kodilla.exepction.test;
+package com.kodilla.exception.test;
 
 public class SecondChallenge {
 

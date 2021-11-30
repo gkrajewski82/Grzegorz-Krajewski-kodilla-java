@@ -1,4 +1,4 @@
-package com.kodilla.exepction.index;
+package com.kodilla.exception.index;
 
 import java.util.List;
 

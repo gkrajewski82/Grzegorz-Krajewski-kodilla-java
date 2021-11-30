@@ -1,4 +1,4 @@
-package com.kodilla.exepction.nullpointer;
+package com.kodilla.exception.nullpointer;
 
 public class MessageSender {
 

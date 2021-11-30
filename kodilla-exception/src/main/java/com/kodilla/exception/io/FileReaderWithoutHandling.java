@@ -1,4 +1,4 @@
-package com.kodilla.exepction.io;
+package com.kodilla.exception.io;
 
 import java.io.File;
 import java.io.IOException;

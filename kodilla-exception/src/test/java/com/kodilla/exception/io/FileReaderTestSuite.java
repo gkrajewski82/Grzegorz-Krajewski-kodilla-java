@@ -1,7 +1,5 @@
 package com.kodilla.exception.io;
 
-import com.kodilla.exepction.io.FileReader;
-import com.kodilla.exepction.io.FileReaderException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

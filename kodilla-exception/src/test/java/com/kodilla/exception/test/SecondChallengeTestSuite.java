@@ -1,6 +1,5 @@
 package com.kodilla.exception.test;
 
-import com.kodilla.exepction.test.SecondChallenge;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
