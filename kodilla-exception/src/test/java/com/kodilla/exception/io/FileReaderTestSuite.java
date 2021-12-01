@@ -16,13 +16,24 @@ public class FileReaderTestSuite {
     }
 
     @Test
-    public void testReadFileWithName() {
+    public void testReadFileWithNameShouldNotThrowException() {
         // given
         FileReader fileReader = new FileReader();
+
         // when & then
         assertAll(
                 () -> assertThrows(FileReaderException.class, () -> fileReader.readFile("nie_ma_takiego_pliku.txt")),
-                () -> assertThrows(FileReaderException.class, () -> fileReader.readFile(null)),
+                () -> assertThrows(FileReaderException.class, () -> fileReader.readFile(null))
+        );
+    }
+
+    @Test
+    public void testReadFileWithNameShouldThrowException() {
+        // given
+        FileReader fileReader = new FileReader();
+
+        // when & then
+        assertAll(
                 () -> assertDoesNotThrow(() -> fileReader.readFile("names.txt"))
         );
     }
