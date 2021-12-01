@@ -175,4 +175,25 @@ public class BoardTestSuite {
         //Then
         assertEquals(10, average, 0.001);
     }
+
+    @Test
+    void testAddTaskListAverageWorkingOnTask2() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+
+        double average = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(task -> task.getTasks().stream())
+                .map(Task::getCreated)
+                .mapToDouble(period -> ChronoUnit.DAYS.between(period, LocalDate.now()))
+                .average()
+                .orElse(0);
+
+        //Then
+        assertEquals(10, average, 0.001);
+    }
 }
