@@ -13,16 +13,6 @@ public class FlightSearcher {
         mapOfAirports.put("Athens", true);
         mapOfAirports.put("Madrid", false);
 
-        Boolean isAvailable = mapOfAirports.get(flight.getArrivalAirport());
 
-        if (isAvailable == null) {
-            throw new RouteNotFoundException();
-        } else if (isAvailable) {
-            System.out.println("The flight from " + flight.getDepartureAirport() + " to "
-                    + flight.getArrivalAirport() + " is available.");
-        } else {
-            System.out.println("The flight from " + flight.getDepartureAirport() + " to "
-                    + flight.getArrivalAirport() + " is not available.");
-        }
     }
 }
