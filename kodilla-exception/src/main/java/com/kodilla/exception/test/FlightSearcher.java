@@ -14,5 +14,6 @@ public class FlightSearcher {
         mapOfAirports.put("Madrid", false);
 
 
+
     }
 }
