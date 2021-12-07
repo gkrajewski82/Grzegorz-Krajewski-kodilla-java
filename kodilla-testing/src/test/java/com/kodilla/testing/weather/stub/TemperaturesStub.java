@@ -3,7 +3,7 @@ package com.kodilla.testing.weather.stub;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TemperaturesStub implements Temperatures{
+public class TemperaturesStub implements Temperatures {
 
     @Override
     public Map<String, Double> getTemperatures() {
