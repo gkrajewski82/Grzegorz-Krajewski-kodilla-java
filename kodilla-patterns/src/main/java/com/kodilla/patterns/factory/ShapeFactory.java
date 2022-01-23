@@ -1,6 +1,6 @@
 package com.kodilla.patterns.factory;
 
-public class ShapeFactory {
+public final class ShapeFactory {
 
     public static final String CIRCLE = "CIRCLE";
     public static final String SQUARE = "SQUARE";
