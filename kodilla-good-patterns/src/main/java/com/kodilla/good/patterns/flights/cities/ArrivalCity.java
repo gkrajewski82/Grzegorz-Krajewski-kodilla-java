@@ -1,10 +1,10 @@
 package com.kodilla.good.patterns.flights.cities;
 
-public class ArrivalCity implements City {
+public final class ArrivalCity implements City {
 
-    private String arrivalCityName;
+    private final String arrivalCityName;
 
-    public ArrivalCity(String arrivalCityName) {
+    public ArrivalCity(final String arrivalCityName) {
         this.arrivalCityName = arrivalCityName;
     }
 

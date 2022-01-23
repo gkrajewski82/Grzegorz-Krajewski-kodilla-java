@@ -3,7 +3,7 @@ package com.kodilla.good.patterns.flights.cities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrivalCityList {
+public final class ArrivalCityList {
 
     private final City poznan = new ArrivalCity("Poznań");
     private final City gdansk = new ArrivalCity("Gdańsk");

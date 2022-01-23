@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FlightMapProcessor {
+public final class FlightMapProcessor {
 
     private final City poznan = new DepartureCity("Poznań");
     private final City gdansk = new DepartureCity("Gdańsk");
