@@ -5,38 +5,38 @@ import java.util.List;
 
 public final class ArrivalCityList {
 
-    private final City poznan = new ArrivalCity("Poznań");
-    private final City gdansk = new ArrivalCity("Gdańsk");
-    private final City rzeszow = new ArrivalCity("Rzeszów");
-    private final City krakow = new ArrivalCity("Kraków");
+    private static final String POZNAN = "Poznań";
+    private static final String GDANSK = "Gdańsk";
+    private static final String RZESZOW = "Rzeszów";
+    private static final String KRAKOW = "Kraków";
 
-    public List<City> generateArrivalCityFromPoznanList() {
-        List<City> arrivalCityFromPoznanList = new ArrayList<>();
-        arrivalCityFromPoznanList.add(gdansk);
-        arrivalCityFromPoznanList.add(rzeszow);
+    public List<String> generateArrivalCityFromPoznanList() {
+        List<String> arrivalCityFromPoznanList = new ArrayList<>();
+        arrivalCityFromPoznanList.add(GDANSK);
+        arrivalCityFromPoznanList.add(RZESZOW);
         return arrivalCityFromPoznanList;
     }
 
-    public List<City> generateArrivalCityFromGdanskList() {
-        List<City> arrivalCityFromGdanskList = new ArrayList<>();
-        arrivalCityFromGdanskList.add(poznan);
-        arrivalCityFromGdanskList.add(rzeszow);
-        arrivalCityFromGdanskList.add(krakow);
+    public List<String> generateArrivalCityFromGdanskList() {
+        List<String> arrivalCityFromGdanskList = new ArrayList<>();
+        arrivalCityFromGdanskList.add(POZNAN);
+        arrivalCityFromGdanskList.add(RZESZOW);
+        arrivalCityFromGdanskList.add(KRAKOW);
         return arrivalCityFromGdanskList;
     }
 
-    public List<City> generateArrivalCityFromRzeszowList() {
-        List<City> arrivalCityFromRzeszowList = new ArrayList<>();
-        arrivalCityFromRzeszowList.add(poznan);
-        arrivalCityFromRzeszowList.add(gdansk);
+    public List<String> generateArrivalCityFromRzeszowList() {
+        List<String> arrivalCityFromRzeszowList = new ArrayList<>();
+        arrivalCityFromRzeszowList.add(POZNAN);
+        arrivalCityFromRzeszowList.add(GDANSK);
         return arrivalCityFromRzeszowList;
     }
 
-    public List<City> generateArrivalCityFromKrakowList() {
-        List<City> arrivalCityFromKrakowList = new ArrayList<>();
-        arrivalCityFromKrakowList.add(poznan);
-        arrivalCityFromKrakowList.add(gdansk);
-        arrivalCityFromKrakowList.add(rzeszow);
+    public List<String> generateArrivalCityFromKrakowList() {
+        List<String> arrivalCityFromKrakowList = new ArrayList<>();
+        arrivalCityFromKrakowList.add(POZNAN);
+        arrivalCityFromKrakowList.add(GDANSK);
+        arrivalCityFromKrakowList.add(RZESZOW);
         return arrivalCityFromKrakowList;
     }
 }

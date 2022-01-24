@@ -8,6 +8,6 @@ public class FlightSearchService {
         FlightSearcher flightSearcher = new FlightSearcher();
         flightSearcher.findFlightFrom("Poznań");
         flightSearcher.findFlightTo("Poznań");
-        //flightSearcher.findFlightToVia(null, null);
+        flightSearcher.findFlightFromToVia("Poznań", "Rzeszów");
     }
 }

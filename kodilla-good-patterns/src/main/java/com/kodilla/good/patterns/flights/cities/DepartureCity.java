@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.flights.cities;
 
-public final class DepartureCity implements City {
+public final class DepartureCity {
 
     private final String departureCityName;
 
@@ -8,8 +8,7 @@ public final class DepartureCity implements City {
         this.departureCityName = departureCityName;
     }
 
-    @Override
-    public String getCityName() {
+    public String getDepartureCityName() {
         return departureCityName;
     }
 

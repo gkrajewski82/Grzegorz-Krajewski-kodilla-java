@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.flights;
 
-import com.kodilla.good.patterns.flights.cities.City;
+import com.kodilla.good.patterns.flights.cities.DepartureCity;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -8,15 +8,14 @@ import java.util.stream.Collectors;
 public final class FlightSearcher {
 
     private final FlightMapProcessor flightMapProcessor = new FlightMapProcessor();
-    private final Map<City, List<City>> flightMap = flightMapProcessor.generateFlightMap();
+    private final Map<DepartureCity, List<String>> flightMap = flightMapProcessor.generateFlightMap();
 
     public void findFlightFrom(String departureCity) {
         if (departureCity != null) {
             String resultCity = flightMap.entrySet().stream()
-                    .filter(departure -> Objects.equals(departure.getKey().getCityName(), departureCity))
+                    .filter(departure -> Objects.equals(departure.getKey().getDepartureCityName(), departureCity))
                     .map(Map.Entry::getValue)
                     .flatMap(Collection::stream)
-                    .map(City::getCityName)
                     .collect(Collectors.joining(","));
             System.out.println("Flights available from " + departureCity + ": (" + resultCity + ")");
         } else {
@@ -28,8 +27,8 @@ public final class FlightSearcher {
 
         if (arrivalCity != null) {
             String resultCity = flightMap.entrySet().stream()
-                    .filter(arrival -> arrival.getValue().contains())
-                    .map(departure -> departure.getKey().getCityName())
+                    .filter(arrival -> arrival.getValue().contains(arrivalCity))
+                    .map(departure -> departure.getKey().getDepartureCityName())
                     .collect(Collectors.joining(","));
             System.out.println("Flights available to " + arrivalCity + " from: (" + resultCity + ")");
         } else {
@@ -37,27 +36,16 @@ public final class FlightSearcher {
         }
     }
 
-    /* //Dlaczego to nie działa?//
-    public void findFlightTo(String arrivalCity) {
-        City theCity = new ArrivalCity(arrivalCity);
+    public void findFlightFromToVia(String departureCity, String arrivalCity) {
 
-        if (arrivalCity != null) {
-            String resultCity = flightMap.entrySet().stream()
-                    .filter(arrival -> arrival.getValue().contains(theCity))
-                    .map(departure -> departure.getKey().getCityName())
-                    .collect(Collectors.joining(","));
-            System.out.println("Flights available to " + arrivalCity + " from: (" + resultCity + ")");
-        } else {
-            System.out.println("Invalid data");
-        }
-    }*/
-
-    /*public void findFlightToVia(String departureCity, String viaCity, String arrivalCity) {
+        String resultViaCity = flightMap.entrySet().stream()
+                .filter(arrival -> arrival.getValue().contains(arrivalCity))
+                .filter(departure -> Objects.equals(departure.getKey().getDepartureCityName(), departureCity))
+                .map(departure -> departure.getKey().getDepartureCityName())
+                .collect(Collectors.joining(","));
+        System.out.println("Flight from: " + resultViaCity + " to ");
 
 
-    }*/
 
-    public Map<City, List<City>> getFlightMap() {
-        return flightMap;
     }
 }
