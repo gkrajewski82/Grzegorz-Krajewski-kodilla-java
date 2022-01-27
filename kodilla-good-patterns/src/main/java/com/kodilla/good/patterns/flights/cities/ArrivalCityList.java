@@ -5,38 +5,33 @@ import java.util.List;
 
 public final class ArrivalCityList {
 
-    private static final String POZNAN = "Poznań";
-    private static final String GDANSK = "Gdańsk";
-    private static final String RZESZOW = "Rzeszów";
-    private static final String KRAKOW = "Kraków";
-
     public List<String> generateArrivalCityFromPoznanList() {
         List<String> arrivalCityFromPoznanList = new ArrayList<>();
-        arrivalCityFromPoznanList.add(GDANSK);
-        arrivalCityFromPoznanList.add(RZESZOW);
+        arrivalCityFromPoznanList.add(City.GDANSK);
+        arrivalCityFromPoznanList.add(City.RZESZOW);
         return arrivalCityFromPoznanList;
     }
 
     public List<String> generateArrivalCityFromGdanskList() {
         List<String> arrivalCityFromGdanskList = new ArrayList<>();
-        arrivalCityFromGdanskList.add(POZNAN);
-        arrivalCityFromGdanskList.add(RZESZOW);
-        arrivalCityFromGdanskList.add(KRAKOW);
+        arrivalCityFromGdanskList.add(City.POZNAN);
+        arrivalCityFromGdanskList.add(City.RZESZOW);
+        arrivalCityFromGdanskList.add(City.KRAKOW);
         return arrivalCityFromGdanskList;
     }
 
     public List<String> generateArrivalCityFromRzeszowList() {
         List<String> arrivalCityFromRzeszowList = new ArrayList<>();
-        arrivalCityFromRzeszowList.add(POZNAN);
-        arrivalCityFromRzeszowList.add(GDANSK);
+        arrivalCityFromRzeszowList.add(City.POZNAN);
+        arrivalCityFromRzeszowList.add(City.GDANSK);
         return arrivalCityFromRzeszowList;
     }
 
     public List<String> generateArrivalCityFromKrakowList() {
         List<String> arrivalCityFromKrakowList = new ArrayList<>();
-        arrivalCityFromKrakowList.add(POZNAN);
-        arrivalCityFromKrakowList.add(GDANSK);
-        arrivalCityFromKrakowList.add(RZESZOW);
+        arrivalCityFromKrakowList.add(City.POZNAN);
+        arrivalCityFromKrakowList.add(City.GDANSK);
+        arrivalCityFromKrakowList.add(City.RZESZOW);
         return arrivalCityFromKrakowList;
     }
 }

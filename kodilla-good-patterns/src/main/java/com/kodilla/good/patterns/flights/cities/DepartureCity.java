@@ -19,7 +19,8 @@ public final class DepartureCity {
 
         DepartureCity that = (DepartureCity) o;
 
-        return departureCityName != null ? departureCityName.equals(that.departureCityName) : that.departureCityName == null;
+        return departureCityName != null ? departureCityName.equals(that.departureCityName) :
+                that.departureCityName == null;
     }
 
     @Override

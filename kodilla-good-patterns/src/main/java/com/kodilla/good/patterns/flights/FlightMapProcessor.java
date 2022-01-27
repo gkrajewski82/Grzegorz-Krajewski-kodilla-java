@@ -1,6 +1,7 @@
 package com.kodilla.good.patterns.flights;
 
 import com.kodilla.good.patterns.flights.cities.ArrivalCityList;
+import com.kodilla.good.patterns.flights.cities.City;
 import com.kodilla.good.patterns.flights.cities.DepartureCity;
 
 import java.util.HashMap;
@@ -9,10 +10,10 @@ import java.util.Map;
 
 public final class FlightMapProcessor {
 
-    private final DepartureCity poznan = new DepartureCity("Poznań");
-    private final DepartureCity gdansk = new DepartureCity("Gdańsk");
-    private final DepartureCity rzeszow = new DepartureCity("Rzeszów");
-    private final DepartureCity krakow = new DepartureCity("Kraków");
+    private final DepartureCity poznan = new DepartureCity(City.POZNAN);
+    private final DepartureCity gdansk = new DepartureCity(City.GDANSK);
+    private final DepartureCity rzeszow = new DepartureCity(City.RZESZOW);
+    private final DepartureCity krakow = new DepartureCity(City.KRAKOW);
 
     private final ArrivalCityList arrivalCityList = new ArrivalCityList();
     private final List<String> arrivalCityFromPoznanList = arrivalCityList.generateArrivalCityFromPoznanList();
