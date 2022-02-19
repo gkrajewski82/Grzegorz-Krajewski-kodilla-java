@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.flights;
 
-import com.kodilla.good.patterns.flights.cities.DepartureCity;
+import com.kodilla.good.patterns.flights.cities.City;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -8,56 +8,47 @@ import java.util.stream.Collectors;
 public final class FlightSearcher {
 
     private final FlightMapProcessor flightMapProcessor = new FlightMapProcessor();
-    private final Map<DepartureCity, List<String>> flightMap = flightMapProcessor.generateFlightMap();
+    private final Map<City, List<City>> flightMap = flightMapProcessor.generateFlightMap();
 
-    public void findFlightFrom(String departureCity) {
+    /*public List<FlightDto> findFlightFrom(City departureCity) {
         if (departureCity != null) {
-            String resultCity = flightMap.entrySet().stream()
-                    .filter(departure -> Objects.equals(departure.getKey().getDepartureCityName(), departureCity))
-                    .map(Map.Entry::getValue)
-                    .flatMap(Collection::stream)
-                    .collect(Collectors.joining(","));
-            System.out.println("Flights available from " + departureCity + ": (" + resultCity + ").");
-        } else {
-            System.out.println("Please fill in all fields correctly!");
+            return flightMap.entrySet().stream()
+                    .filter(departure -> Objects.equals(departure.getKey(), departureCity))
+                    .flatMap(a -> a.getValue().stream())
+                    .map(cityListEntry -> new FlightDto(departureCity, cityListEntry.getValue())
+
+                    .collect(Collectors.toList());
         }
-    }
+        return null;
+    }*/
 
-    public void findFlightTo(String arrivalCity) {
-
+    public List<FlightDto> findFlightTo(City arrivalCity) {
         if (arrivalCity != null) {
-            String resultCity = flightMap.entrySet().stream()
+            return flightMap.entrySet().stream()
                     .filter(arrival -> arrival.getValue().contains(arrivalCity))
-                    .map(departure -> departure.getKey().getDepartureCityName())
-                    .collect(Collectors.joining(","));
-            System.out.println("Flights available to " + arrivalCity + " from: (" + resultCity + ").");
-        } else {
-            System.out.println("Please fill in all fields correctly!");
+                    .map(entry -> new FlightDto(entry.getKey(), arrivalCity))
+                    .collect(Collectors.toList());
         }
+        return null;
     }
 
-    public void findFlightFromToVia(String departureCity, String viaCity, String arrivalCity) {
-
-        List<String> possibleViaCityArrivalList = flightMap.entrySet().stream()
-                .filter(departure -> Objects.equals(departure.getKey().getDepartureCityName(), departureCity))
-                .flatMap(arrival -> arrival.getValue().stream())
+    public boolean findFlightFromToVia(City departureCity, City viaCity, City arrivalCity) {
+        List<City> arrivalCityList = flightMap.entrySet().stream()
+                .filter(departure -> Objects.equals(departure.getKey(), departureCity))
+                .map(Map.Entry::getValue)
+                .flatMap(Collection::stream)
                 .collect(Collectors.toList());
 
-        List<String> possibleViaCityDepartureList = flightMap.entrySet().stream()
+        List<City> departureCityList = flightMap.entrySet().stream()
                 .filter(arrival -> arrival.getValue().contains(arrivalCity))
-                .map(departure -> departure.getKey().getDepartureCityName())
+                .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
 
-        if (departureCity != null && viaCity != null && arrivalCity != null) {
-            if (possibleViaCityArrivalList.contains(viaCity) && possibleViaCityDepartureList.contains(viaCity)) {
-                System.out.println("Flight from " + departureCity + " via " + viaCity +
-                        " to " + arrivalCity + " is available.");
-            } else {
-                System.out.println("Flight from " + departureCity + " via " + viaCity +
-                        " to " + arrivalCity + " is not available.");
-            }
-        } else {
-            System.out.println("Please fill in all fields correctly!");
+        if (departureCity != null && viaCity != null && arrivalCity != null && arrivalCityList.contains(viaCity) &&
+            departureCityList.contains(viaCity)) {
+            FlightDto theFlight = new FlightDto(departureCity, viaCity, arrivalCity);
+            return true;
         }
+        return false;
     }
 }
