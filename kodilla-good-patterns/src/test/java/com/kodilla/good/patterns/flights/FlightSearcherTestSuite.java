@@ -1,11 +1,5 @@
 package com.kodilla.good.patterns.flights;
 
-import com.kodilla.good.patterns.flights.cities.ArrivalCity;
-import com.kodilla.good.patterns.flights.cities.DepartureCity;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

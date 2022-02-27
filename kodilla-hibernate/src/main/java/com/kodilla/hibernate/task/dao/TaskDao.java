@@ -26,4 +26,8 @@ public interface TaskDao extends CrudRepository<Task, Integer> {
 
     @Query
     List<Task> retrieveTasksWithDurationLongerThan(@Param("DURATION") int duration);
+
+    @Query(value = "FROM Task WHERE duration > 20")
+    List<Task> retrieveVeryLongTasks();
+
 }

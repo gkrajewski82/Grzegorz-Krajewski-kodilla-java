@@ -1,42 +1,34 @@
 package com.kodilla.good.patterns.flights;
 
-import com.kodilla.good.patterns.flights.cities.City;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
 public final class FlightSearcher {
 
-    private final FlightMapProcessor flightMapProcessor = new FlightMapProcessor();
-    private final Map<City, List<City>> flightMap = flightMapProcessor.generateFlightMap();
+    private final FlightSetProcessor flightSetProcessor = new FlightSetProcessor();
+    private final Set<Flight> flightSet = flightSetProcessor.generateFlightSet();
 
-    /*public List<FlightDto> findFlightFrom(City departureCity) {
+    public List<Flight> findFlightFrom(City departureCity) {
         if (departureCity != null) {
-            return flightMap.entrySet().stream()
-                    .filter(departure -> Objects.equals(departure.getKey(), departureCity))
-                    .flatMap(a -> a.getValue().stream())
-                    .map(cityListEntry -> new FlightDto(departureCity, cityListEntry.getValue())
-
-                    .collect(Collectors.toList());
-        }
-        return null;
-    }*/
-
-    public List<FlightDto> findFlightTo(City arrivalCity) {
-        if (arrivalCity != null) {
-            return flightMap.entrySet().stream()
-                    .filter(arrival -> arrival.getValue().contains(arrivalCity))
-                    .map(entry -> new FlightDto(entry.getKey(), arrivalCity))
+            return flightSet.stream()
+                    .filter(flight -> flight.getDepartureCity().equals(departureCity))
                     .collect(Collectors.toList());
         }
         return null;
     }
 
-    public boolean findFlightFromToVia(City departureCity, City viaCity, City arrivalCity) {
-        List<City> arrivalCityList = flightMap.entrySet().stream()
-                .filter(departure -> Objects.equals(departure.getKey(), departureCity))
-                .map(Map.Entry::getValue)
-                .flatMap(Collection::stream)
+    public List<Flight> findFlightTo(City arrivalCity) {
+        if (arrivalCity != null) {
+            return flightSet.stream()
+                    .filter(flight -> flight.getArrivalCity().equals(arrivalCity))
+                    .collect(Collectors.toList());
+        }
+        return null;
+    }
+    /*public List<Flight> findFlightFromToVia(City departureCity, City viaCity, City arrivalCity) {
+        List<City> arrivalCityList = flightSet.stream()
+                .filter(flight -> flight.getDepartureCity().equals())
+
                 .collect(Collectors.toList());
 
         List<City> departureCityList = flightMap.entrySet().stream()
@@ -46,9 +38,10 @@ public final class FlightSearcher {
 
         if (departureCity != null && viaCity != null && arrivalCity != null && arrivalCityList.contains(viaCity) &&
             departureCityList.contains(viaCity)) {
-            FlightDto theFlight = new FlightDto(departureCity, viaCity, arrivalCity);
+            Flight theFlight = new Flight(departureCity, viaCity, arrivalCity);
             return true;
         }
-        return false;
-    }
+        return null
+    }*/
+
 }
