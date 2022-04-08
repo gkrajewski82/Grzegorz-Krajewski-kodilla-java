@@ -5,7 +5,7 @@ import java.util.Set;
 
 public final class FlightSetProcessor {
 
-    final Set<Flight> flightsSet = new LinkedHashSet<>();
+    final Set<Flight> flightSet = new LinkedHashSet<>();
 
     City poznan = new City("Poznań");
     City gdansk = new City("Gdańsk");
@@ -33,21 +33,21 @@ public final class FlightSetProcessor {
     Flight warszawaGdansk = new Flight(warszawa, gdansk);
 
     public Set<Flight> generateFlightSet() {
-        flightsSet.add(poznanGdansk);
-        flightsSet.add(poznanRzeszow);
-        flightsSet.add(poznanWarszawa);
-        flightsSet.add(gdanskPoznan);
-        flightsSet.add(gdanskRzeszow);
-        flightsSet.add(gdanskKrakow);
-        flightsSet.add(gdanskWarszawa);
-        flightsSet.add(rzeszowPoznan);
-        flightsSet.add(rzeszowGdansk);
-        flightsSet.add(krakowPoznan);
-        flightsSet.add(krakowGdansk);
-        flightsSet.add(krakowRzeszow);
-        flightsSet.add(warszawaRzeszow);
-        flightsSet.add(warszawaGdansk);
+        flightSet.add(poznanGdansk);
+        flightSet.add(poznanRzeszow);
+        flightSet.add(poznanWarszawa);
+        flightSet.add(gdanskPoznan);
+        flightSet.add(gdanskRzeszow);
+        flightSet.add(gdanskKrakow);
+        flightSet.add(gdanskWarszawa);
+        flightSet.add(rzeszowPoznan);
+        flightSet.add(rzeszowGdansk);
+        flightSet.add(krakowPoznan);
+        flightSet.add(krakowGdansk);
+        flightSet.add(krakowRzeszow);
+        flightSet.add(warszawaRzeszow);
+        flightSet.add(warszawaGdansk);
 
-        return flightsSet;
+        return flightSet;
     }
 }

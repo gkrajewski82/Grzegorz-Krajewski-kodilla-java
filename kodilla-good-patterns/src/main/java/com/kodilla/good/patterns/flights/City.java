@@ -11,4 +11,11 @@ public final class City {
     public String getCityName() {
         return cityName;
     }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "cityName='" + cityName + '\'' +
+                '}';
+    }
 }

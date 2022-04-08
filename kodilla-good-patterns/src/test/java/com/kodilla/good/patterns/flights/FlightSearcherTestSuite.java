@@ -1,28 +1,31 @@
 package com.kodilla.good.patterns.flights;
 
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FlightSearcherTestSuite {
 
-    /*//Given
+    //Given
     FlightSearcher flightSearcher = new FlightSearcher();
 
     @Test
     void findFlightFromTest() {
 
         //When
-        List<FlightDto> possibleFlightList = flightSearcher.findFlightFrom(new DepartureCity("Gdańsk"));
+        List<Flight> possibleFlightList = flightSearcher.findFlightFrom("Gdańsk");
 
         //Then
-        assertEquals(5, possibleFlightList.size());
+        assertEquals(4, possibleFlightList.size());
     }
 
     @Test
     void findFlightToTest() {
 
         //When
-        List<FlightDto> possibleFlightList = flightSearcher.findFlightTo(new ArrivalCity("Poznań"));
+        List<Flight> possibleFlightList = flightSearcher.findFlightTo("Poznań");
 
         //Then
         assertEquals(3, possibleFlightList.size());
@@ -32,10 +35,10 @@ public class FlightSearcherTestSuite {
     void findFlightFromToViaTest() {
 
         //When
-        boolean theFlight = flightSearcher.findFlightFromToVia(new DepartureCity("Poznań"),
-                new ArrivalCity("Kraków"), new ArrivalCity("Gdańsk"));
+        List<Flight> possibleFlightList =
+                flightSearcher.findFlightFromToVia("Poznań", "Rzeszów", "Gdańsk");
 
         //Then
-        assertTrue(false);
-    }*/
+        assertEquals(2, possibleFlightList.size());
+    }
 }

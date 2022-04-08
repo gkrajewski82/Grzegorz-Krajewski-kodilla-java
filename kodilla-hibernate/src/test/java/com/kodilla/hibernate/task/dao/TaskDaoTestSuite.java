@@ -15,7 +15,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class TaskDaoTestSuite {
+class TaskDaoTestSuite {
 
     @Autowired
     private TaskDao taskDao;

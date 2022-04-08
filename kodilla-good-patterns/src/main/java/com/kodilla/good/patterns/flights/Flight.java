@@ -36,4 +36,12 @@ public final class Flight {
         result = 31 * result + (arrivalCity != null ? arrivalCity.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "departureCity=" + departureCity +
+                ", arrivalCity=" + arrivalCity +
+                '}';
+    }
 }
