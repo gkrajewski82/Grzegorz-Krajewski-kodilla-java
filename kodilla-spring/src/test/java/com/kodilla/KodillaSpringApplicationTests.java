@@ -64,5 +64,4 @@ class KodillaSpringApplicationTests {
         //Then
         System.out.println("Chosen shape says: " + name);
     }
-
 }

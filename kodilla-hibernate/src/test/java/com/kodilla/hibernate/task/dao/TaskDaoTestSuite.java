@@ -21,6 +21,8 @@ class TaskDaoTestSuite {
     private TaskDao taskDao;
     @Autowired
     private TaskListDao taskListDao;
+    @Autowired
+    private TaskFinancialDetailsDao taskFinancialDetailsDao;
 
     private static final String DESCRIPTION = "Test: Learn Hibernate";
     private static final String TODO = "To Do List";
@@ -108,6 +110,14 @@ class TaskDaoTestSuite {
 
         taskListDao.save(taskList);
         int id = taskList.getId();
+        int task1Id = task1.getId();
+        int task2Id = task2.getId();
+        int task3Id = task3.getId();
+        int task4Id = task4.getId();
+        int tfd1Id = tfd1.getId();
+        int tfd2Id = tfd1.getId();
+        int tfd3Id = tfd1.getId();
+        int tfd4Id = tfd1.getId();
 
         //When
         List<Task> longTasks = taskDao.retrieveLongTasks();
