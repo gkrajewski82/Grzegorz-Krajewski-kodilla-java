@@ -8,7 +8,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.findCompanyByFirstThreeSigns",
-        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME REGEXP '^Sof'",
+        query = "SELECT * FROM COMPANIES WHERE LEFT (COMPANY_NAME, 3) = :PREFIX",
         resultClass = Company.class
 )
 @Entity
