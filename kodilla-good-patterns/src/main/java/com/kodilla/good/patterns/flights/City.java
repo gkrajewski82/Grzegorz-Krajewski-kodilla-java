@@ -14,8 +14,6 @@ public final class City {
 
     @Override
     public String toString() {
-        return "City{" +
-                "cityName='" + cityName + '\'' +
-                '}';
+        return cityName;
     }
 }

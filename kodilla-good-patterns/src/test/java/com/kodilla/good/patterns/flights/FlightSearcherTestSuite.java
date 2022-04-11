@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FlightSearcherTestSuite {
 
-    //Given
     FlightSearcher flightSearcher = new FlightSearcher();
 
     @Test
@@ -18,7 +17,7 @@ public class FlightSearcherTestSuite {
         List<Flight> possibleFlightList = flightSearcher.findFlightFrom("Gdańsk");
 
         //Then
-        assertEquals(4, possibleFlightList.size());
+        assertEquals(3, possibleFlightList.size());
     }
 
     @Test
