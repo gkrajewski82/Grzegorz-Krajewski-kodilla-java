@@ -11,6 +11,10 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES WHERE LEFT (COMPANY_NAME, 3) = :PREFIX",
         resultClass = Company.class
 )
+@NamedQuery(
+        name = "Company.findCompanyByNameFragment",
+        query = "FROM Company WHERE name LIKE :NAME_FRAGMENT"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
