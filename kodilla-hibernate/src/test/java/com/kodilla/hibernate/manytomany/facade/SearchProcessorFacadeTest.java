@@ -43,11 +43,13 @@ class SearchProcessorFacadeTest {
         int greyMatterId = greyMatter.getId();
 
         //When
+        List<Company> companyListNull = searchProcessorFacade.findCompanyByNameFragment(null);
         List<Company> companyListNoLetters = searchProcessorFacade.findCompanyByNameFragment("");
         List<Company> companyListPrefixLetters = searchProcessorFacade.findCompanyByNameFragment("gre");
         List<Company> companyListMiddleLetters = searchProcessorFacade.findCompanyByNameFragment("ma");
 
         //Then
+        assertEquals(0, companyListNull.size());
         assertEquals(4, companyListNoLetters.size());
         assertEquals(2, companyListPrefixLetters.size());
         assertEquals(3, companyListMiddleLetters.size());
@@ -78,11 +80,13 @@ class SearchProcessorFacadeTest {
         int lindaKovalskyId = lindaKovalsky.getId();
 
         //When
+        List<Employee> employeeListNull = searchProcessorFacade.findEmployeeByLastname(null);
         List<Employee> employeeListNoLetters = searchProcessorFacade.findEmployeeByLastname("");
         List<Employee> employeeLListPrefixLetters = searchProcessorFacade.findEmployeeByLastname("Sm");
         List<Employee> employeeLListMiddleLetters = searchProcessorFacade.findEmployeeByLastname("a");
 
         //Then
+        assertEquals(0, employeeListNull.size());
         assertEquals(4, employeeListNoLetters.size());
         assertEquals(2, employeeLListPrefixLetters.size());
         assertEquals(2, employeeLListMiddleLetters.size());
